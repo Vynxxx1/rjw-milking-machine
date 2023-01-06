@@ -34,6 +34,10 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Milk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Milk.dll</HintPath>
+    </Reference>
     <Reference Include="RJW">
       <HintPath>..\..\_rjw\1.3\Assemblies\RJW.dll</HintPath>
     </Reference>
@@ -52,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Custom_Genital_Helper.cs" />
     <Compile Include="BreastMilkingHediff.cs" />
+    <Compile Include="PawnExtensions.cs" />
     <Compile Include="PenisMilkingHediff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VariousDefOf.cs" />

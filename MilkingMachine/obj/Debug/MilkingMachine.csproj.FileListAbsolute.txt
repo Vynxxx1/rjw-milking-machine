@@ -29,3 +29,34 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Milking Apparel\Milk
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Milking Apparel\MilkingMachine\obj\Debug\MilkingMachine.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Milking Apparel\MilkingMachine\obj\Debug\MilkingMachine.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Milking Apparel\MilkingMachine\bin\Debug\0MultiplayerAPI.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\MilkingMachine.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\MilkingMachine.pdb
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\Assembly-CSharp.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.CoreModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.IMGUIModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\NAudio.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\NVorbis.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.AudioModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\com.rlabrecque.steamworks.net.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.TextRenderingModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.AssetBundleModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.PhysicsModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\Unity.TextMeshPro.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\ISharpZipLib.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.InputLegacyModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.PerformanceReportingModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.ImageConversionModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.ScreenCaptureModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.UI.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\0MultiplayerAPI.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.SharedInternalsModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.TextCoreModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.UIModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.Physics2DModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\bin\Debug\UnityEngine.AnimationModule.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\obj\Debug\MilkingMachine.csproj.AssemblyReference.cache
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\obj\Debug\MilkingMachine.csproj.CoreCompileInputs.cache
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\obj\Debug\MilkingMachine.csproj.CopyComplete
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\obj\Debug\MilkingMachine.dll
+D:\Games\RimWorld.v1.4.3580\Mods\rjw-milking-machine\MilkingMachine\obj\Debug\MilkingMachine.pdb

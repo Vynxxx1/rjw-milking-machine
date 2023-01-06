@@ -55,7 +55,7 @@ namespace MilkingMachine
                                 if (pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalCow) || pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalHucow))
                                     traitMultiplier = 3;
                                 Need sexNeed = pawn.needs.TryGetNeed(VariousDefOf.Sex);
-                                Thing breastThing = ThingMaker.MakeThing(VariousDefOf.Milk);
+                                Thing breastThing = ThingMaker.MakeThing(pawn.GetMilkType());
                                 breastThing.stackCount = (int)(pawn.BodySize * breastMultiplier * mcLactating * bLactating * traitMultiplier * udder);
                                 if (breastThing.stackCount < 1)
                                     breastThing.stackCount = 1;
