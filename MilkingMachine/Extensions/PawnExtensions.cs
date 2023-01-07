@@ -148,11 +148,6 @@ namespace MilkingMachine
                 .Aggregate(false, (agg, breast) => agg || breast.IsUdders()) ?? false;
         }
 
-        public static bool IsUdders(this Hediff breast)
-        {
-            return breast.LabelBase.ToLower().Contains("udder");
-        }
-
         public static float MilkMultiplier(this Pawn pawn, IEnumerable<Hediff> breasts)
         {
             if (breasts.EnumerableNullOrEmpty())

@@ -29,6 +29,10 @@ namespace MilkingMachine
             string defNameLower = hediff?.def.defName.ToLower() ?? "";
             return defNameLower.Contains("breast") || defNameLower.Contains("chest");
         }
+        public static bool IsUdders(this Hediff breast)
+        {
+            return breast.LabelBase.ToLower().Contains("udder");
+        }
 
         public static float TryGetBreastSizeMultiplier(this Hediff breast)
         {
