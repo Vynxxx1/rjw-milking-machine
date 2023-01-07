@@ -11,13 +11,21 @@ namespace MilkingMachine
     [DefOf]
     public static class VariousDefOf
     {
+        // core
         public static ThingDef Milk;
-        public static ThingDef UsedCondom;
+
+        [MayRequireBiotech]
+        public static HediffDef Lactating;
+
+        // this mod
         public static ThingDef LM_DragonCum;
-        public static NeedDef Sex;
         public static TraitDef LM_NaturalHucow = DefDatabase<TraitDef>.GetNamed("LM_NaturalHucow");
         public static TraitDef LM_HighTestosterone = DefDatabase<TraitDef>.GetNamed("LM_HighTestosterone");
         public static TraitDef LM_NaturalCow = DefDatabase<TraitDef>.GetNamed("LM_NaturalCow");
+
+        // rjw
+        public static ThingDef UsedCondom;
+        public static NeedDef Sex;
 
         [MayRequire("rjw.sexperience")]
         public static ThingDef GatheredCum;
@@ -25,9 +33,6 @@ namespace MilkingMachine
         public static HediffDef Lactating_Drug;
         [MayRequire("rjw.sexperience")]
         public static HediffDef Lactating_Permanent;
-
-        [MayRequireBiotech]
-        public static HediffDef Lactating;
 
         [MayRequire("c0ffee.rjw.IdeologyAddons")]
         public static Hediff Hucow;

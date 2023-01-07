@@ -54,9 +54,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreastMilkingHediff.cs" />
-    <Compile Include="PawnExtensions.cs" />
-    <Compile Include="PenisMilkingHediff.cs" />
+    <Compile Include="Hediffs\BreastMilkingHediff.cs" />
+    <Compile Include="Extensions\HediffExtensions.cs" />
+    <Compile Include="Extensions\PawnExtensions.cs" />
+    <Compile Include="Hediffs\PenisMilkingHediff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="VariousDefOf.cs" />

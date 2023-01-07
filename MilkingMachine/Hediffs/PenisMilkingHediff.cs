@@ -28,7 +28,7 @@ namespace MilkingMachine
             if (!(pawn.IsColonist || pawn.IsPrisoner || pawn.IsSlave))
                 return;
 
-            IEnumerable<Hediff> penises = pawn.GetGenitalsList().Where(PawnExtensions.IsPenis);
+            IEnumerable<Hediff> penises = pawn.GetGenitalsList().Where(HediffExtensions.IsPenis);
             bool hasPenis = !penises.EnumerableNullOrEmpty();
             if (!hasPenis)
                 return;

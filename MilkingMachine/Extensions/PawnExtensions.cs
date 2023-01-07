@@ -22,13 +22,13 @@ namespace MilkingMachine
         {
             getMilkTypeOf = getMilkTypeMilkableColonists;
             canBeMilked = canBeMilkedMilkableColonists;
-            milk = milkMilkableColonists;
+            milkPawn = milkPawnMilkableColonists;
         }
 
         /* GENERAL */
         public static int GetMilkQuantity(this Pawn pawn)
         {
-            IEnumerable<Hediff> breasts = pawn.GetBreastList().Where(IsBreast);
+            IEnumerable<Hediff> breasts = pawn.GetBreastList().Where(HediffExtensions.IsBreast);
             if (breasts.EnumerableNullOrEmpty())
                 return 0;
 
@@ -58,12 +58,12 @@ namespace MilkingMachine
             return pawn.needs.TryGetNeed<Need_Sex>().CurLevel < 0.4f;
         }
 
-        private static Action<Pawn> milk = milkLegacy;
+        private static Action<Pawn> milkPawn = milkPawnLegacy;
         public static void MilkPawn(this Pawn pawn)
         {
-            milk(pawn);
+            milkPawn(pawn);
         }
-        private static void milkLegacy(Pawn pawn) 
+        private static void milkPawnLegacy(Pawn pawn) 
         {
             if (!pawn.CanBeMilked())
                 return;
@@ -81,11 +81,10 @@ namespace MilkingMachine
             if (sexNeed != null)
                 sexNeed.CurLevel -= 0.02f;
         }
-        private static void milkMilkableColonists(Pawn pawn)
+        private static void milkPawnMilkableColonists(Pawn pawn)
         {
-            if (!pawn.CanBeMilked())
-                return;
-            gatherMilk(pawn);
+            if (pawn.CanBeMilked())
+                gatherMilk(pawn);
         }
         /// <summary>
         /// Based on https://github.com/emipa606/MilkableColonists/blob/main/Source/Milk/HumanCompHasGatherableBodyResource.cs#L90
@@ -102,7 +101,6 @@ namespace MilkingMachine
 
             float BreastSize = 1f;
 
-            // this can almost certainly be refactored massively; also doesn't account for multiple sets
             if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("HugeBreasts")) 
                 || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("BionicBreasts")) 
                 || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("SlimeBreasts")) 
@@ -110,12 +108,6 @@ namespace MilkingMachine
             {
                 BreastSize = 1.5f;
             }
-            /*else if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("Breasts")) 
-                || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("HydraulicBreasts")) 
-                || (pawn.gender == Gender.Female && DefDatabase<HediffDef>.GetNamedSilentFail("Breasts") == null))
-            {
-                BreastSize = 1f;
-            }*/
             else if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("SmallBreasts")))
             {
                 BreastSize = 0.75f;
@@ -174,7 +166,7 @@ namespace MilkingMachine
         public static bool HasUdders(this Pawn pawn)
         {
             return pawn?.GetBreastList()?
-                .Where(IsBreast)?
+                .Where(HediffExtensions.IsBreast)?
                 .Aggregate(false, (agg, breast) => agg || breast.IsUdders()) ?? false;
         }
 
@@ -199,44 +191,12 @@ namespace MilkingMachine
             return breasts.Aggregate(multiplier, MilkMultiplierAggregator);
         }
 
-        public static bool IsPenis(this Hediff hediff)
-        {
-            if (hediff == null)
-                return false;
-
-            string defNameLower = hediff.def.defName.ToLower();
-
-            if (!(defNameLower.Contains("penis") || defNameLower.Contains("ovipositor") || defNameLower.Contains("pegdick")))
-            {
-                if (defNameLower.Contains("tentacle"))
-                    return !defNameLower.Contains("penis");
-                return false;
-            }
-
-            return true;
-        }
-        public static bool IsBreast(this Hediff hediff)
-        {
-            string defNameLower = hediff.def.defName.ToLower();
-            return hediff != null && (defNameLower.Contains("breast") || defNameLower.Contains("chest"));
-        }
-
         private static float MilkMultiplierAggregator(float totalSoFar, Hediff breast)
         {
             totalSoFar *= breast.TryGetBreastSizeMultiplier();
             if (breast.IsUdders())
                 totalSoFar *= breast.pawn.UdderMultiplier();
             return totalSoFar;
-        }
-
-        public static float TryGetBreastSizeMultiplier(this Hediff breast)
-        {
-            // Cows in real life produce 8gal daily while cows in RW produce 14u daily
-            // 1u of milk = 1.75gal or 6624ml
-            // Humans produce at min 216ml max 3031ml or just under 1u for both average 1623.5ml
-            PartSizeExtension.TryGetBreastWeight(breast, out float breastWeight);
-            PartSizeExtension.TryGetCupSize(breast, out float cupSize);
-            return cupSize / breastWeight;
         }
 
         /// <summary>
