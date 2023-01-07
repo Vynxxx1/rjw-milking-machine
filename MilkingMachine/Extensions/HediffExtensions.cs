@@ -13,25 +13,21 @@ namespace MilkingMachine
     {
         public static bool IsPenis(this Hediff hediff)
         {
-            if (hediff == null)
-                return false;
-
-            string defNameLower = hediff.def.defName.ToLower();
-
-            if (!(defNameLower.Contains("penis") || defNameLower.Contains("ovipositor") || defNameLower.Contains("pegdick")))
+            // pretty sure this can be done w/out any if statements but my brain is fried...
+            string defNameLower = hediff?.def.defName.ToLower() ?? "";
+            if (!(defNameLower.Contains("penis") || defNameLower.Contains("ovipositorm") || defNameLower.Contains("pegdick"))) // rjw defname for male ovipositor is "ovipositorm"; not typo
             {
                 if (defNameLower.Contains("tentacle"))
                     return !defNameLower.Contains("penis");
                 return false;
             }
-
             return true;
         }
 
         public static bool IsBreast(this Hediff hediff)
         {
-            string defNameLower = hediff.def.defName.ToLower();
-            return hediff != null && (defNameLower.Contains("breast") || defNameLower.Contains("chest"));
+            string defNameLower = hediff?.def.defName.ToLower() ?? "";
+            return defNameLower.Contains("breast") || defNameLower.Contains("chest");
         }
 
         public static float TryGetBreastSizeMultiplier(this Hediff breast)

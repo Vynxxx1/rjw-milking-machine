@@ -99,29 +99,7 @@ namespace MilkingMachine
             if (milkee == null || !milkee.Active) // i think maybe fallthrough to default if null and return doing nothing if nonnull but inactive
                 return;
 
-            float BreastSize = 1f;
-
-            if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("HugeBreasts")) 
-                || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("BionicBreasts")) 
-                || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("SlimeBreasts")) 
-                || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("GR_MuffaloMammaries")))
-            {
-                BreastSize = 1.5f;
-            }
-            else if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("SmallBreasts")))
-            {
-                BreastSize = 0.75f;
-            }
-            else if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("LargeBreasts"))
-                || pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("ArchotechBreasts")))
-            {
-                BreastSize = 1.25f;
-            }
-            else if (pawn.health.hediffSet.HasHediff(DefDatabase<HediffDef>.GetNamedSilentFail("FlatBreasts")) 
-                || pawn.gender == Gender.Male)
-            {
-                BreastSize = 0.5f;
-            }
+            float BreastSize = pawn.health.hediffSet.GetBreastSize();
 
             ThingDef ResourceDef = milkee.Props.milkDef;
             var ResourceAmount = milkee.Props.milkAmount;
@@ -189,6 +167,11 @@ namespace MilkingMachine
                 multiplier *= 2;
 
             return breasts.Aggregate(multiplier, MilkMultiplierAggregator);
+        }
+
+        public static float MilkMultiplier(this Pawn pawn)
+        {
+            return pawn.MilkMultiplier(pawn.GetBreastList().Where(HediffExtensions.IsBreast));
         }
 
         private static float MilkMultiplierAggregator(float totalSoFar, Hediff breast)

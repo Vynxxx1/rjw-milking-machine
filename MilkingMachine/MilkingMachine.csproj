@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\HediffSetExtensions.cs" />
     <Compile Include="Hediffs\BreastMilkingHediff.cs" />
     <Compile Include="Extensions\HediffExtensions.cs" />
     <Compile Include="Extensions\PawnExtensions.cs" />
