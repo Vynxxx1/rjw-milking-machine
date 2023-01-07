@@ -14,7 +14,7 @@ namespace MilkingMachine
         public static ThingDef Milk;
         public static ThingDef UsedCondom;
         public static ThingDef LM_DragonCum;
-        public static NeedDef Sex = DefDatabase<NeedDef>.GetNamed("Sex");
+        public static NeedDef Sex;
         public static TraitDef LM_NaturalHucow = DefDatabase<TraitDef>.GetNamed("LM_NaturalHucow");
         public static TraitDef LM_HighTestosterone = DefDatabase<TraitDef>.GetNamed("LM_HighTestosterone");
         public static TraitDef LM_NaturalCow = DefDatabase<TraitDef>.GetNamed("LM_NaturalCow");
@@ -28,5 +28,8 @@ namespace MilkingMachine
 
         [MayRequireBiotech]
         public static HediffDef Lactating;
+
+        [MayRequire("c0ffee.rjw.IdeologyAddons")]
+        public static Hediff Hucow;
     }
 }

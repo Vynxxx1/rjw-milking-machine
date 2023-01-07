@@ -12,6 +12,7 @@ namespace MilkingMachine
     public class MMSettings
     {
         public static bool MilkableColonistsActive = ModsConfig.IsActive("mlie.milkablecolonists") || ModsConfig.IsActive("rjw.milk.humanoid");
+        public static bool Sexperience = ModsConfig.IsActive("rjw.sexperience");
 
         public static int milkingInterval = 3000;
     }

@@ -54,7 +54,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Custom_Genital_Helper.cs" />
     <Compile Include="BreastMilkingHediff.cs" />
     <Compile Include="PawnExtensions.cs" />
     <Compile Include="PenisMilkingHediff.cs" />
