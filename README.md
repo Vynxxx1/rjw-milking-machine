@@ -1,4 +1,7 @@
-﻿## Requires RimJobWorld (obviously) and Vanilla Expanded Framework
+﻿### Note
+This Fork is designed to work with the Milkable Colonists version listed on the addons post in the official RJW addons post. Below is the readme of the repo this is forked from. It (probably) isn't accurate.
+
+## Requires RimJobWorld (obviously) and Vanilla Expanded Framework
 **Tutorial**
 To begin milking a colonist you'll want to create either a penis milking machine or a breast milking machine, both costing 45 units of any leathery material at a tailoring bench. The penis milking machine produces a variable amount of used condoms / cum if [Sexperience](https://www.loverslab.com/topic/193448-mod-rjw-sexperience-continued/) is active each day. The same is said for a breast milking machine, but instead of cum it's milk. 
 Before you start your new milk farm, you should take note of the following:
