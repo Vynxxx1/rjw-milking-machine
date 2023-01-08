@@ -14,11 +14,18 @@ namespace MilkingMachine
         {
             if (MMSettings.MilkableColonistsActive)
                 SetupMilkableColonists();
+            if (MMSettings.CriaActive)
+                SetupCria();
         }
 
         private static void SetupMilkableColonists()
         {
             getMilkTypeOf = getMilkTypeMilkableColonists;
+        }
+
+        private static void SetupCria()
+        {
+
         }
 
         /* GENERAL */
@@ -61,14 +68,19 @@ namespace MilkingMachine
         {
             return pawn?.GetBreastList()?
                 .Where(HediffExtensions.IsBreast)?
-                .Aggregate(false, (agg, breast) => agg || breast.IsUdders()) ?? false;
+                .AggregateOr(HediffExtensions.IsUdders) ?? false;
         }
 
+        private static Func<Pawn, IEnumerable<Hediff>, float> milkMultiplier = milkMultiplierVanilla;
         public static float MilkMultiplier(this Pawn pawn)
         {
             return pawn.MilkMultiplier(pawn.GetBreastList().Where(HediffExtensions.IsBreast));
         }
         public static float MilkMultiplier(this Pawn pawn, IEnumerable<Hediff> breasts)
+        {
+            return milkMultiplier(pawn, breasts);
+        }
+        private static float milkMultiplierVanilla(Pawn pawn, IEnumerable<Hediff> breasts)
         {
             if (breasts.EnumerableNullOrEmpty())
                 return 0f; // or maybe 1f?
@@ -83,16 +95,16 @@ namespace MilkingMachine
 
             return breasts.Aggregate(multiplier, MilkMultiplierAggregator);
         }
-        private static float MilkMultiplierAggregator(float totalSoFar, Hediff breast)
+        private static float MilkMultiplierAggregator(float acc, Hediff breast)
         {
             bool ok = breast.TryGetBreastSizeMultiplier(out float size);
             if (!ok)
-                return totalSoFar;
+                return acc;
 
-            totalSoFar *= size;
+            acc *= size;
             if (breast.IsUdders())
-                totalSoFar *= breast.pawn.UdderMultiplier();
-            return totalSoFar;
+                acc *= breast.pawn.UdderMultiplier();
+            return acc;
         }
 
         /// <summary>

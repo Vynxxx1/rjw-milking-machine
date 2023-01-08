@@ -39,7 +39,7 @@ namespace MilkingMachine
             if (penisType == PenisType.Dragon)
                 return VariousDefOf.LM_DragonCum;
 
-            if (MMSettings.Sexperience)
+            if (MMSettings.SexperienceActive)
                 return VariousDefOf.GatheredCum;
 
             return VariousDefOf.UsedCondom;

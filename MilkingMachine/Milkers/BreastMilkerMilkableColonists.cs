@@ -32,8 +32,9 @@ namespace MilkingMachine
 
             ThingDef ResourceDef = pawn.GetMilkType();
             var ResourceAmount = milkee.Props.milkAmount;
+            var multiplier = pawn.GetMilkQuantity();
 
-            var i = GenMath.RoundRandom(ResourceAmount * BreastSize * milkee.Fullness);
+            var i = GenMath.RoundRandom(ResourceAmount * milkee.Fullness * multiplier * 0.15f);
             while (i > 0)
             {
                 var num = Mathf.Clamp(i, 1, ResourceDef.stackLimit);

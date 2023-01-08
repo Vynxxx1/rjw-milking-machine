@@ -9,9 +9,12 @@ namespace MilkingMachine
 {
     public class MMSettings : ModSettings
     {
+        // active mods
         public static bool MilkableColonistsActive = ModsConfig.IsActive("mlie.milkablecolonists") || ModsConfig.IsActive("rjw.milk.humanoid");
-        public static bool Sexperience = ModsConfig.IsActive("rjw.sexperience");
+        public static bool SexperienceActive = ModsConfig.IsActive("rjw.sexperience");
+        public static bool CriaActive = ModsConfig.IsActive("c0ffee.rjw.IdeologyAddons");
 
+        // scribe exposed
         public static int milkingInterval = 3000;
 
         public override void ExposeData()

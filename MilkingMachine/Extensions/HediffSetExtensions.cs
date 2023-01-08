@@ -11,9 +11,8 @@ namespace MilkingMachine
         public static IEnumerable<Func<HediffSet, bool>> HugeBreasts = new List<Func<HediffSet, bool>>()
         {
             s => s.HasHediffSilentFail("HugeBreasts"),
-            s => s.HasHediffSilentFail("BionicBreasts"),
-            s => s.HasHediffSilentFail("SlimeBreasts"),
             s => s.HasHediffSilentFail("GR_MuffaloMammaries"),
+            s => s.HasHediffSilentFail("ArchotechBreasts"),
         };
         public static IEnumerable<Func<HediffSet, bool>> SmallBreasts = new List<Func<HediffSet, bool>>()
         {
@@ -22,7 +21,9 @@ namespace MilkingMachine
         public static IEnumerable<Func<HediffSet, bool>> LargeBreasts = new List<Func<HediffSet, bool>>()
         {
             s => s.HasHediffSilentFail("LargeBreasts"),
-            s => s.HasHediffSilentFail("ArchotechBreasts"),
+            s => s.HasHediffSilentFail("BionicBreasts"),
+            s => s.HasHediffSilentFail("SlimeBreasts"),
+            s => s.HasHediff(VariousDefOf.MucusBreasts),
         };
         public static IEnumerable<Func<HediffSet, bool>> FlatBreasts = new List<Func<HediffSet, bool>>()
         {
@@ -31,9 +32,9 @@ namespace MilkingMachine
             s => s.pawn.gender == Gender.Male,
         };
 
-        private static bool RunCheckers(this HediffSet hediffSet, IEnumerable<Func<HediffSet, bool>> checkers, bool seed = false)
+        private static bool RunCheckers(this HediffSet hediffSet, IEnumerable<Func<HediffSet, bool>> checkers)
         {
-            return checkers.Aggregate(seed, (foundSoFar, checker) => foundSoFar || checker(hediffSet));
+            return checkers.AggregateOr(checker => checker(hediffSet));
         }
 
         private static bool HasHediffSilentFail(this HediffSet hediffSet, string defName)

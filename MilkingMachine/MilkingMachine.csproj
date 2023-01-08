@@ -33,13 +33,20 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="C0ffee%27s RJW Ideology Addons">
+      <HintPath>..\..\coffees-rjw-ideology-addons\1.4\Assemblies\C0ffee's RJW Ideology Addons.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Milk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Milk.dll</HintPath>
+      <HintPath>..\..\rjw-mc\1.4\Assemblies\Milk.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RJW">
-      <HintPath>..\..\_rjw\1.3\Assemblies\RJW.dll</HintPath>
+      <HintPath>..\..\rjw\1.4\Assemblies\RJW.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,10 +58,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\HediffSetExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\PenisType.cs" />
     <Compile Include="Hediffs\BreastMilkingHediff.cs" />
     <Compile Include="Extensions\HediffExtensions.cs" />
@@ -72,5 +81,11 @@
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="VariousDefOf.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="copy_build.py" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>python "../../copy_build.py"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
