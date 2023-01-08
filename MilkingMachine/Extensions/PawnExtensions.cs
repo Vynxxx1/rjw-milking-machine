@@ -84,7 +84,11 @@ namespace MilkingMachine
         }
         private static float MilkMultiplierAggregator(float totalSoFar, Hediff breast)
         {
-            totalSoFar *= breast.TryGetBreastSizeMultiplier();
+            bool ok = breast.TryGetBreastSizeMultiplier(out float size);
+            if (!ok)
+                return totalSoFar;
+
+            totalSoFar *= size;
             if (breast.IsUdders())
                 totalSoFar *= breast.pawn.UdderMultiplier();
             return totalSoFar;
@@ -96,7 +100,28 @@ namespace MilkingMachine
         /// <returns>Value to multiply milk output by</returns>
         public static float UdderMultiplier(this Pawn _)
         {
-            return 8;
+            return 8f;
+        }
+
+        public static float CumMultiplierFromTraits(this Pawn pawn)
+        {
+            float multiplier = 1f;
+
+            if (pawn.story.traits.HasTrait(VariousDefOf.LM_HighTestosterone) 
+                || pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalCow))
+                multiplier *= 3f;
+
+            return multiplier;
+        }
+
+        public static float CumMultiplierFromQuirks(this Pawn pawn)
+        {
+            float multiplier = 1f;
+
+            if (pawn.Has(Quirk.Messy))
+                multiplier *= 2;
+
+            return multiplier;
         }
     }
 }

@@ -5,8 +5,6 @@ using System.Linq;
 using Verse;
 using rjw;
 
-// using HarmonyLib;
-
 namespace MilkingMachine
 {
     public class BreastMilkerLegacy : IMilker

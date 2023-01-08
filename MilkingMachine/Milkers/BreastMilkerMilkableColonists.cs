@@ -7,8 +7,6 @@ using rjw;
 using UnityEngine;
 using System.Reflection;
 
-// using HarmonyLib;
-
 namespace MilkingMachine
 {
     class BreastMilkerMilkableColonists : IMilker
