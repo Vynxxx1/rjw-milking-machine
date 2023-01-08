@@ -30,7 +30,7 @@ namespace MilkingMachine
 
             float BreastSize = pawn.health.hediffSet.GetBreastSize();
 
-            ThingDef ResourceDef = milkee.Props.milkDef;
+            ThingDef ResourceDef = pawn.GetMilkType();
             var ResourceAmount = milkee.Props.milkAmount;
 
             var i = GenMath.RoundRandom(ResourceAmount * BreastSize * milkee.Fullness);

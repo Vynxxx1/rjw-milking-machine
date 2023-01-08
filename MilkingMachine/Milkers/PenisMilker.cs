@@ -21,14 +21,12 @@ namespace MilkingMachine
             if (sexNeed == null) // no sex need :(
                 return false;
 
-            float threshhold = Range(0f, 1f);
-            return sexNeed < threshhold;
+            return sexNeed < Range(0f, 1f);
         }
 
         public void Milk(Pawn milkee)
         {
-            IEnumerable<Hediff> penises = milkee.GetGenitalsList().Where(HediffExtensions.IsPenis);
-            if (penises.EnumerableNullOrEmpty())
+            if (!milkee.TryGetPenises(out IEnumerable<Hediff> penises))
                 return;
 
             foreach (Hediff penis in penises)

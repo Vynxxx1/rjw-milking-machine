@@ -95,12 +95,13 @@ namespace MilkingMachine
         }
 
         /// <summary>
-        /// If the pawn has udders, it is to be multiplied by this value.
+        /// If the pawn has udders, it is to be multiplied by this value. <br/>
+        /// Doesn't check if the pawn has udders or not; check yourself elsewhere.
         /// </summary>
-        /// <returns>Value to multiply milk output by</returns>
+        /// <returns>Value to multiply milk output by if udders</returns>
         public static float UdderMultiplier(this Pawn _)
         {
-            return 8f;
+            return MMBreastSettings.uddersMultiplier;
         }
 
         public static float CumMultiplierFromTraits(this Pawn pawn)
@@ -122,6 +123,12 @@ namespace MilkingMachine
                 multiplier *= 2;
 
             return multiplier;
+        }
+
+        public static bool TryGetPenises(this Pawn pawn, out IEnumerable<Hediff> penises)
+        {
+            penises = pawn?.GetGenitalsList()?.Where(HediffExtensions.IsPenis);
+            return !penises.EnumerableNullOrEmpty();
         }
     }
 }
