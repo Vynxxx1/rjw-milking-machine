@@ -12,8 +12,8 @@ def main():
     build_dir = sln_dir / "bin" / "Release"
     assemblies_dir = sln_dir / ".." / "1.4" / "Assemblies"
 
-    for path in [Path(x) for x in glob(join(build_dir, "*.dll"))]:
-        cp(path, path.parent.parent.parent.parent / "1.4" / "Assemblies")
+    for path in [Path(x) for x in glob(str(build_dir / "*.dll"))]:
+        cp(path, path / ".." / ".." / ".." / ".." / "1.4" / "Assemblies")
 
 if __name__ == "__main__":
     main()

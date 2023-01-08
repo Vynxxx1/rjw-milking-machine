@@ -87,9 +87,14 @@ namespace MilkingMachine
 
             float multiplier = pawn.MilkMultiplierFromTraits();
 
+            // want to use milk VariousDefOf.MilkProductionYield eventually when CRIA is active 
             if (MMSettings.MilkableColonistsActive
                 && (pawn.health.hediffSet.HasHediff(VariousDefOf.Lactating_Drug) || pawn.health.hediffSet.HasHediff(VariousDefOf.Lactating_Permanent)))
                 multiplier *= 2;
+            if (MMSettings.MilkableColonistsActive
+                && pawn.health.hediffSet.HasHediff(VariousDefOf.Lactating_Permanent_Heavily))
+                multiplier *= 4;
+
             if (ModsConfig.BiotechActive && pawn.health.hediffSet.HasHediff(VariousDefOf.Lactating))
                 multiplier *= 2;
 
