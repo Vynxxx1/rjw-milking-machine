@@ -22,13 +22,13 @@ namespace MilkingMachine
             switch (penisType)
             {
                 case PenisType.Equine:
-                    return 16f;
+                    return MMPenisSettings.equineCumMultiplier;
                 case PenisType.Canine:
-                    return 4f;
+                    return MMPenisSettings.canineCumMultiplier;
                 case PenisType.Demon:
-                    return 6.66f;
+                    return MMPenisSettings.demonCumMultiplier;
                 case PenisType.Dragon:
-                    return 6f;
+                    return MMPenisSettings.dragonCumMultiplier;
                 default:
                     return 1f;
             }

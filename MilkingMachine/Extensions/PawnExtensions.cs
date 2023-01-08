@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 using rjw;
-using UnityEngine;
-using System.Reflection;
 
 namespace MilkingMachine
 {
@@ -52,7 +50,10 @@ namespace MilkingMachine
         /* NATURAL (HU)COW TRAITS */
         public static float MilkMultiplierFromTraits(this Pawn pawn)
         {
-            return pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalCow) || pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalHucow) ? 3 : 1;
+            if (pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalCow) || pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalHucow))
+                return MMBreastSettings.positiveTraitMultiplier;
+            else
+                return 1f;
         }
 
         /* BODY PARTS */
@@ -110,7 +111,7 @@ namespace MilkingMachine
 
             if (pawn.story.traits.HasTrait(VariousDefOf.LM_HighTestosterone) 
                 || pawn.story.traits.HasTrait(VariousDefOf.LM_NaturalCow))
-                multiplier *= 3f;
+                multiplier *= MMPenisSettings.positiveTraitCumMultiplier;
 
             return multiplier;
         }
@@ -120,7 +121,7 @@ namespace MilkingMachine
             float multiplier = 1f;
 
             if (pawn.Has(Quirk.Messy))
-                multiplier *= 2;
+                multiplier *= MMPenisSettings.positiveQuirkCumMultiplier;
 
             return multiplier;
         }

@@ -5,8 +5,6 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 
-// using HarmonyLib;
-
 namespace MilkingMachine
 {
     public class MMSettingsController : Mod

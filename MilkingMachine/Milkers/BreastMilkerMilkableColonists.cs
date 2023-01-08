@@ -16,7 +16,7 @@ namespace MilkingMachine
             Milk.HumanCompHasGatherableBodyResource milkee = pawn.TryGetComp<Milk.HumanCompHasGatherableBodyResource>();
             if (milkee == null || !milkee.Active)
                 return false;
-            return milkee.Fullness > 0.5f;
+            return milkee.Fullness > MMBreastSettings.fullnessToMilkAt;
         }
 
         /// <summary>

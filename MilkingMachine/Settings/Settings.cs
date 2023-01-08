@@ -5,8 +5,6 @@ using System.Linq;
 using Verse;
 using UnityEngine;
 
-// using HarmonyLib;
-
 namespace MilkingMachine
 {
     public class MMSettings : ModSettings
@@ -28,7 +26,7 @@ namespace MilkingMachine
 
             listingStandard.Begin(inRect);
 
-            listingStandard.Label("Milking Interval", -1, "Used in breast milking without Milkable Colonists enabled and in all penis milking");
+            listingStandard.Label("Milking Interval: " + milkingInterval.ToString(), -1, "Used in breast milking without Milkable Colonists enabled and in all penis milking");
             milkingInterval = (int)listingStandard.Slider(milkingInterval, 1f, 100000f);
             listingStandard.Gap();
 
