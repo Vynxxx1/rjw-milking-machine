@@ -21,8 +21,6 @@ namespace MilkingMachine
         private static void SetupMilkableColonists()
         {
             getMilkTypeOf = getMilkTypeMilkableColonists;
-            canBeMilked = canBeMilkedMilkableColonists;
-            milkPawn = milkPawnMilkableColonists;
         }
 
         /* GENERAL */
@@ -33,89 +31,6 @@ namespace MilkingMachine
                 return 0;
 
             return (int)(breasts.Count() * pawn.BodySize * pawn.MilkMultiplier(breasts));
-        }
-
-        private static Func<Pawn, bool> canBeMilked = canBeMilkedLegacy;
-        public static bool CanBeMilked(this Pawn pawn)
-        {
-            return canBeMilked(pawn);
-        }
-        private static bool canBeMilkedLegacy(this Pawn pawn)
-        {
-            return pawn.IsHashIntervalTick(MMSettings.milkingInterval);
-        }
-        private static bool canBeMilkedMilkableColonists(this Pawn pawn)
-        {
-            Milk.HumanCompHasGatherableBodyResource milkee =  pawn.TryGetComp<Milk.HumanCompHasGatherableBodyResource>();
-            if (milkee == null || !milkee.Active)
-                return false;
-            Log.Message(milkee.Fullness.ToString());
-            return milkee.Fullness > 0.5f;
-        }
-
-        public static bool CanPenisBeMilked(this Pawn pawn)
-        {
-            return pawn.needs.TryGetNeed<Need_Sex>().CurLevel < 0.4f;
-        }
-
-        private static Action<Pawn> milkPawn = milkPawnLegacy;
-        public static void MilkPawn(this Pawn pawn)
-        {
-            milkPawn(pawn);
-        }
-        private static void milkPawnLegacy(Pawn pawn) 
-        {
-            if (!pawn.CanBeMilked())
-                return;
-            if (!(pawn.IsColonist || pawn.IsPrisoner || pawn.IsSlave))
-                return;
-
-            int qty = pawn.GetMilkQuantity();
-            if (qty == 0)
-                return;
-            Thing milkThing = ThingMaker.MakeThing(pawn.GetMilkType());
-            milkThing.stackCount = qty;
-            GenPlace.TryPlaceThing(milkThing, pawn.Position, pawn.Map, ThingPlaceMode.Near);
-
-            Need_Sex sexNeed = pawn.needs.TryGetNeed<Need_Sex>();
-            if (sexNeed != null)
-                sexNeed.CurLevel -= 0.02f;
-        }
-        private static void milkPawnMilkableColonists(Pawn pawn)
-        {
-            if (pawn.CanBeMilked())
-                gatherMilk(pawn);
-        }
-        /// <summary>
-        /// Based on https://github.com/emipa606/MilkableColonists/blob/main/Source/Milk/HumanCompHasGatherableBodyResource.cs#L90
-        /// </summary>
-        /// <param name="pawn"></param>
-        private static void gatherMilk(Pawn pawn)
-        {
-            if (pawn == null)
-                return;
-
-            Milk.CompMilkableHuman milkee = pawn.TryGetComp<Milk.CompMilkableHuman>();
-            if (milkee == null || !milkee.Active) // i think maybe fallthrough to default if null and return doing nothing if nonnull but inactive
-                return;
-
-            float BreastSize = pawn.health.hediffSet.GetBreastSize();
-
-            ThingDef ResourceDef = milkee.Props.milkDef;
-            var ResourceAmount = milkee.Props.milkAmount;
-
-            var i = GenMath.RoundRandom(ResourceAmount * BreastSize * milkee.Fullness);
-            while (i > 0)
-            {
-                var num = Mathf.Clamp(i, 1, ResourceDef.stackLimit);
-                i -= num;
-                var thing = ThingMaker.MakeThing(ResourceDef);
-                thing.stackCount = num;
-                GenPlace.TryPlaceThing(thing, pawn.Position, pawn.Map, ThingPlaceMode.Near);
-            }
-
-            typeof(Milk.CompMilkableHuman).GetField("fullness", BindingFlags.NonPublic | BindingFlags.Instance)
-                .SetValue(milkee, 0f);
         }
 
         /* MILK TYPE */
@@ -148,6 +63,10 @@ namespace MilkingMachine
                 .Aggregate(false, (agg, breast) => agg || breast.IsUdders()) ?? false;
         }
 
+        public static float MilkMultiplier(this Pawn pawn)
+        {
+            return pawn.MilkMultiplier(pawn.GetBreastList().Where(HediffExtensions.IsBreast));
+        }
         public static float MilkMultiplier(this Pawn pawn, IEnumerable<Hediff> breasts)
         {
             if (breasts.EnumerableNullOrEmpty())
@@ -163,12 +82,6 @@ namespace MilkingMachine
 
             return breasts.Aggregate(multiplier, MilkMultiplierAggregator);
         }
-
-        public static float MilkMultiplier(this Pawn pawn)
-        {
-            return pawn.MilkMultiplier(pawn.GetBreastList().Where(HediffExtensions.IsBreast));
-        }
-
         private static float MilkMultiplierAggregator(float totalSoFar, Hediff breast)
         {
             totalSoFar *= breast.TryGetBreastSizeMultiplier();
