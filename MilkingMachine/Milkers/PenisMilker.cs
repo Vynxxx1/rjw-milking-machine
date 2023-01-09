@@ -8,9 +8,9 @@ using static UnityEngine.Random;
 
 namespace MilkingMachine
 {
-    public class PenisMilker : IMilker
+    public class PenisMilker : MilkerBase
     {
-        public bool CanMilk(Pawn milkee)
+        public override bool CanMilk(Pawn milkee)
         {
             if (milkee == null
                 || !(milkee.IsColonist || milkee.IsPrisoner || milkee.IsSlave)
@@ -24,7 +24,7 @@ namespace MilkingMachine
             return sexNeed < Range(0f, 1f);
         }
 
-        public void Milk(Pawn milkee)
+        public override void Milk(Pawn milkee)
         {
             if (!milkee.TryGetPenises(out IEnumerable<Hediff> penises))
                 return;

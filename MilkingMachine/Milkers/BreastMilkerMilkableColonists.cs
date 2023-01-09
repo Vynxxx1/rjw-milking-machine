@@ -9,9 +9,9 @@ using System.Reflection;
 
 namespace MilkingMachine
 {
-    class BreastMilkerMilkableColonists : IMilker
+    class BreastMilkerMilkableColonists : MilkerBase
     {
-        public bool CanMilk(Pawn pawn)
+        public override bool CanMilk(Pawn pawn)
         {
             Milk.HumanCompHasGatherableBodyResource milkee = pawn.TryGetComp<Milk.HumanCompHasGatherableBodyResource>();
             if (milkee == null || !milkee.Active)
@@ -22,7 +22,7 @@ namespace MilkingMachine
         /// <summary>
         /// Largely based on https://github.com/emipa606/MilkableColonists/blob/main/Source/Milk/HumanCompHasGatherableBodyResource.cs#L90
         /// </summary>
-        public void Milk(Pawn pawn)
+        public override void Milk(Pawn pawn)
         {
             Milk.CompMilkableHuman milkee = pawn?.TryGetComp<Milk.CompMilkableHuman>();
             if ((!milkee?.Active) ?? false)

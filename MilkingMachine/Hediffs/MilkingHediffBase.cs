@@ -8,12 +8,18 @@ namespace MilkingMachine
 {
     public class MilkingHediffBase : HediffWithComps
     {
-        protected IMilker milker;
+        protected MilkerBase milker;
 
         public override void Tick()
         {
             if (milker?.CanMilk(pawn) ?? false)
                 milker.Milk(pawn);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Deep.Look(ref milker, "milker");
         }
     }
 }

@@ -7,15 +7,15 @@ using rjw;
 
 namespace MilkingMachine
 {
-    public class BreastMilkerLegacy : IMilker
+    public class BreastMilkerLegacy : MilkerBase
     {
-        public bool CanMilk(Pawn milkee)
+        public override bool CanMilk(Pawn milkee)
         {
             return !(milkee.IsColonist || milkee.IsPrisoner || milkee.IsSlave) 
                 && milkee.IsHashIntervalTick(MMSettings.milkingInterval);
         }
 
-        public void Milk(Pawn milkee)
+        public override void Milk(Pawn milkee)
         {
             int qty = milkee.GetMilkQuantity();
             if (qty == 0)

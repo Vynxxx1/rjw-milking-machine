@@ -72,13 +72,15 @@
     <Compile Include="Hediffs\PenisMilkingHediff.cs" />
     <Compile Include="Milkers\BreastMilkerLegacy.cs" />
     <Compile Include="Milkers\BreastMilkerMilkableColonists.cs" />
-    <Compile Include="Milkers\IMilker.cs" />
+    <Compile Include="Milkers\MilkerBase.cs" />
     <Compile Include="Milkers\PenisMilker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\BreastSettings.cs" />
     <Compile Include="Settings\Controllers.cs" />
     <Compile Include="Settings\PenisSettings.cs" />
     <Compile Include="Settings\Settings.cs" />
+    <Compile Include="ThingComps\CompApparelHediffs.cs" />
+    <Compile Include="ThingComps\CompProperties_ApparelHediffs.cs" />
     <Compile Include="VariousDefOf.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -23,10 +23,7 @@ namespace MilkingMachine
             getMilkTypeOf = getMilkTypeMilkableColonists;
         }
 
-        private static void SetupCria()
-        {
-
-        }
+        private static void SetupCria() {}
 
         /* GENERAL */
         public static int GetMilkQuantity(this Pawn pawn)
@@ -147,6 +144,22 @@ namespace MilkingMachine
         {
             penises = pawn?.GetGenitalsList()?.Where(HediffExtensions.IsPenis);
             return !penises.EnumerableNullOrEmpty();
+        }
+
+        public static void RemoveHediffs(this Pawn pawn, IEnumerable<Hediff> hediffs)
+        {
+            if (pawn?.health?.hediffSet?.hediffs == null)
+                return;
+            foreach (Hediff hediff in hediffs)
+                pawn?.health?.hediffSet?.hediffs?.Remove(hediff);
+        }
+
+        public static void AddHediffs(this Pawn pawn, IEnumerable<Hediff> hediffs)
+        {
+            if (pawn?.health?.hediffSet?.hediffs == null)
+                return;
+            foreach (Hediff hediff in hediffs)
+                pawn.health.AddHediff(hediff);
         }
     }
 }

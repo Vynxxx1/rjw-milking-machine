@@ -9,9 +9,12 @@ namespace MilkingMachine
     /// <summary>
     /// Every tick, CanMilk is ran then, if it returned true, Milk.
     /// </summary>
-    public interface IMilker
+    public abstract class MilkerBase : IExposable
     {
-        bool CanMilk(Pawn milkee);
-        void Milk(Pawn milkee);
+        public abstract bool CanMilk(Pawn milkee);
+
+        public abstract void Milk(Pawn milkee);
+
+        public void ExposeData() {}
     }
 }

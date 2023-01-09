@@ -8,11 +8,11 @@
         </supportedVersions>
         <description>milking apparel</description>
         <modDependencies>
-            <li>
+            <!--<li>
                 <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
                 <displayName>Vanilla Expanded Framework</displayName>
                 <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2023507013</steamWorkshopUrl>
-            </li>
+            </li>-->
             <li>
                 <packageId>rim.job.world</packageId>
                 <displayName>RimJobWorld</displayName>

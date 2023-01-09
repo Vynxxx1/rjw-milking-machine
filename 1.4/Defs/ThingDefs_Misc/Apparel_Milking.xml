@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
     <ThingDef Name="LM_MM" ParentName="ApparelMakeableBase" Abstract="True">
         <techLevel>Industrial</techLevel>
         <costStuffCount>45</costStuffCount>
@@ -39,14 +38,14 @@
         <canBeDesiredForIdeo>true</canBeDesiredForIdeo>
       </apparel>
       <comps>
-        <li Class="VFECore.CompProperties_ApparelHediffs">
+        <li Class="MilkingMachine.CompProperties_ApparelHediffs">
           <hediffDefnames>
             <li>LM_PenisMilkingHediff</li>
           </hediffDefnames>
         </li>
       </comps>
       <modExtensions>
-        <li  MayRequire="shauaputa.rimnudeworld" Class="RevealingApparel.ApparelRevealingExtension">
+        <li MayRequire="shauaputa.rimnudeworld" Class="RevealingApparel.ApparelRevealingExtension">
           <revealingBodyPartEntries>
             <li>
               <revealingPath>Breasts/FeaturelessLeft</revealingPath>
@@ -103,14 +102,14 @@
         <canBeDesiredForIdeo>true</canBeDesiredForIdeo>
       </apparel>
       <comps>
-        <li Class="VFECore.CompProperties_ApparelHediffs">
+        <li Class="MilkingMachine.CompProperties_ApparelHediffs">
           <hediffDefnames>
             <li>LM_BreastMilkingHediff</li>
           </hediffDefnames>
         </li>
       </comps>
       <modExtensions>
-        <li  MayRequire="shauaputa.rimnudeworld" Class="RevealingApparel.ApparelRevealingExtension">
+        <li MayRequire="shauaputa.rimnudeworld" Class="RevealingApparel.ApparelRevealingExtension">
           <revealingBodyPartEntries>
             <li>
               <revealingPath>Breasts/FeaturelessLeft</revealingPath>
@@ -166,5 +165,4 @@
         </li>
       </modExtensions>
     </ThingDef>
-
 </Defs>
