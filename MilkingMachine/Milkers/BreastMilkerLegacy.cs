@@ -11,13 +11,13 @@ namespace MilkingMachine
     {
         public override bool CanMilk(Pawn milkee)
         {
-            return !(milkee.IsColonist || milkee.IsPrisoner || milkee.IsSlave) 
+            return (milkee.IsColonist || milkee.IsPrisoner || milkee.IsSlave) 
                 && milkee.IsHashIntervalTick(MMSettings.milkingInterval);
         }
 
         public override void Milk(Pawn milkee)
         {
-            int qty = milkee.GetMilkQuantity();
+            int qty = milkee?.GetMilkQuantity() ?? 0;
             if (qty == 0)
                 return;
             Thing milkThing = ThingMaker.MakeThing(milkee.GetMilkType());
