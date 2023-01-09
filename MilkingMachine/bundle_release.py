@@ -15,8 +15,8 @@ def main():
     releases_dir = base_dir / "Releases"
     if not releases_dir.exists():
         mkdir(releases_dir)
-    releases_today = len(glob(str(releases_dir / (date + "*.zip"))))
-    zip_path = releases_dir / (date + chr(97 + releases_today) + ".zip")
+    releases_today = len(glob(str(releases_dir / (MOD_NAME + "-" + date + "*.zip"))))
+    zip_path = releases_dir / (MOD_NAME + "-" + date + chr(97 + releases_today) + ".zip")
     
     with ZipFile(zip_path, 'w') as zip_file:
         add_dir_to_zip(zip_file, base_dir, "About")
