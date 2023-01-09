@@ -1,3 +1,10 @@
+9 January 2023
+- Basically a full rewrite of the original
+- In-game settings added
+- Very poorly balanced
+- Polymorphism added for the Hediffs and Milkers, allowing for easier integration with various mods (though not many supported as of right now).
+- Support for the Milkable Colonists onslort continuation
+
 1 November 2022
 - Sex need becomes fully satisfied when milked
 - Messy quirk slightly increases penis milking amount

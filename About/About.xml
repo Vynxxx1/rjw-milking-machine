@@ -8,15 +8,16 @@
         </supportedVersions>
         <description>milking apparel</description>
         <modDependencies>
-            <!--<li>
-                <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
-                <displayName>Vanilla Expanded Framework</displayName>
-                <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2023507013</steamWorkshopUrl>
-            </li>-->
             <li>
                 <packageId>rim.job.world</packageId>
                 <displayName>RimJobWorld</displayName>
                 <steamWorkshopUrl>https://gitgud.io/Ed86/rjw</steamWorkshopUrl>
             </li>
         </modDependencies>
+        <loadAfter>
+            <li>rim.job.world</li>
+            <li>rjw.milk.humanoid</li>
+            <li>mlie.milkablecolonists</li>
+            <li>c0ffee.rjw.IdeologyAddons</li>
+        </loadAfter>
 </ModMetaData>
