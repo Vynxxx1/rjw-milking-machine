@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <rjw.bondage_gear_def Name="LM_MMb" ParentName="BondageGearBase" Abstract="True">
+        <techLevel>Industrial</techLevel>
+        <costStuffCount>45</costStuffCount>
+        <stuffCategories>
+          <li>Leathery</li>
+        </stuffCategories>
+        <statBases>
+          <MaxHitPoints>180</MaxHitPoints>
+          <WorkToMake>7000</WorkToMake>
+          <Mass>1</Mass>
+          <EquipDelay>0.8</EquipDelay>
+        </statBases>
+    </rjw.bondage_gear_def>
+
+    <rjw.bondage_gear_def ParentName="LM_MMb">
+        <defName>LM_BreastMilkingMachine_Bondage</defName>
+		<soul_type>MilkingMachine.BreastMilkerSoul</soul_type>
+        <label>breast milking machine</label>
+        <description>This milking machine is attatched to the breasts, allowing the user some mobility but due to the constant stimuli, it becomes hard for the wearer to focus.</description>
+        <graphicData>
+            <texPath>BM/BM</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1.00</drawSize>
+        </graphicData>
+        <apparel>
+            <bodyPartGroups>
+                <li>ChestBPG</li>
+            </bodyPartGroups>
+            <wornGraphicPath>BM/BM</wornGraphicPath>
+            <layers>
+                <li>Shell</li>
+            </layers>
+            <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+        </apparel>
+        <modExtensions>
+            <li MayRequire="shauaputa.rimnudeworld" Class="RevealingApparel.ApparelRevealingExtension">
+                <revealingBodyPartEntries>
+                <li>
+                    <revealingPath>Breasts/FeaturelessLeft</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>
+                <li>
+                    <revealingPath>Breasts/FeaturelessRight</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>
+                <li>
+                    <revealingPath>Genitals/Testicles/FeaturelessTesticles</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>
+                <li>
+                    <revealingPath>Genitals/Pubes/Pubes</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>								
+                <li>
+                    <revealingPath>Anus/FeaturelessAnus</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>
+                </revealingBodyPartEntries>
+            </li>
+        </modExtensions>
+    </rjw.bondage_gear_def>
+
+    <rjw.bondage_gear_def ParentName="LM_MMb">
+        <defName>LM_PenisMilkingMachine_Bondage</defName>
+        <soul_type>MilkingMachine.PenisMilkerSoul</soul_type>
+        <label>penis milking machine</label>
+        <description>This milking machine is attatched to the penis, allowing the user some mobility but due to the constant stimuli, it becomes hard for the wearer to focus.</description>
+        <graphicData>
+            <texPath>PM/PM</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1.00</drawSize>
+        </graphicData>
+        <apparel>
+            <bodyPartGroups>
+                <li>GenitalsBPG</li>
+            </bodyPartGroups>
+            <wornGraphicPath>PM/PM</wornGraphicPath>
+            <layers>
+                <li>Shell</li>
+            </layers>
+            <canBeDesiredForIdeo>true</canBeDesiredForIdeo>
+      </apparel>
+      <modExtensions>
+            <li MayRequire="shauaputa.rimnudeworld" Class="RevealingApparel.ApparelRevealingExtension">
+            <revealingBodyPartEntries>
+                <li>
+                    <revealingPath>Breasts/FeaturelessLeft</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>
+                <li>
+                    <revealingPath>Breasts/FeaturelessRight</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>					
+                <li>
+                    <revealingPath>Anus/FeaturelessAnus</revealingPath>
+                    <revealingBodyTypes>
+                        <li>Female</li>
+                        <li>Thin</li>
+                        <li>Male</li>
+                        <li>Fat</li>
+                        <li>Hulk</li>
+                    </revealingBodyTypes>
+                </li>
+            </revealingBodyPartEntries>
+            </li>
+        </modExtensions>
+    </rjw.bondage_gear_def>
+</Defs>

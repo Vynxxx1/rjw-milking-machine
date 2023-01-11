@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+    <RecipeDef Abstract="True" Name="MM_MakeBondageGear">
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+        <soundWorking>Recipe_Tailor</soundWorking>
+        <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+
+        <recipeUsers>
+            <!--<li>HandTailoringBench</li>-->
+            <li>ElectricTailoringBench</li>
+        </recipeUsers>
+		<workAmount>7000</workAmount>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+        
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Leathers</li>
+						<li>Textiles</li>
+                    </categories>
+                </filter>
+                <count>50</count>
+            </li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Hololock</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+        </ingredients>
+        <fixedIngredientFilter>
+        	<categories>
+				<li>Leathers</li>
+				<li>Textiles</li>
+			</categories>
+		    <thingDefs>
+				<li>Hololock</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+    </RecipeDef>
+
+    <RecipeDef ParentName="MM_MakeBondageGear">
+        <defName>MakeBreastMilkingMachine_Bondage</defName>
+        <label>make a locked breast milking machine</label>
+        <description>Make a locked breast milking machine</description>
+        <jobString>Making locked breast milking machine</jobString>
+        <products>
+            <LM_BreastMilkingMachine_Bondage>1</LM_BreastMilkingMachine_Bondage>
+        </products>
+    </RecipeDef>
+
+    <RecipeDef ParentName="MM_MakeBondageGear">
+        <defName>MakePenisMilkingMachine_Bondage</defName>
+        <label>make a locked penis milking machine</label>
+        <description>Make a locked penis milking machine</description>
+        <jobString>Making locked penis milking machine</jobString>
+        <products>
+            <LM_PenisMilkingMachine_Bondage>1</LM_PenisMilkingMachine_Bondage>
+        </products>
+    </RecipeDef>
+</Defs>

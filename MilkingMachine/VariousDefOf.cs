@@ -13,15 +13,17 @@ namespace MilkingMachine
     {
         // core
         public static ThingDef Milk;
-
         [MayRequireBiotech]
         public static HediffDef Lactating;
 
         // this mod
+
         public static ThingDef LM_DragonCum;
         public static TraitDef LM_NaturalHucow = DefDatabase<TraitDef>.GetNamed("LM_NaturalHucow");
         public static TraitDef LM_HighTestosterone = DefDatabase<TraitDef>.GetNamed("LM_HighTestosterone");
         public static TraitDef LM_NaturalCow = DefDatabase<TraitDef>.GetNamed("LM_NaturalCow");
+        public static HediffDef LM_PenisMilkingHediff;
+        public static HediffDef LM_BreastMilkingHediff;
 
         // rjw
         public static ThingDef UsedCondom;
