@@ -1,8 +1,11 @@
+13 January 2023
+- Added locked versions of the two milking machines (using rjw.bondage_gear_def), allowing them to be used on prisoners
+
 9 January 2023
 - Basically a full rewrite of the original
 - In-game settings added
 - Very poorly balanced
-- Polymorphism added for the Hediffs and Milkers, allowing for easier integration with various mods (though not many supported as of right now).
+- Polymorphism added for the Hediffs and Milkers, allowing for easier integration with various mods (though not many supported as of right now)
 - Support for the Milkable Colonists onslort continuation
 
 1 November 2022
