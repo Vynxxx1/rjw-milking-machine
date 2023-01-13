@@ -150,23 +150,15 @@ namespace MilkingMachine
         {
             if (pawn?.health?.hediffSet?.hediffs == null)
                 return;
-            pawn.RemoveHediffsNoNullCheck(hediffs);
+            foreach (Hediff hediff in hediffs)
+                pawn.health.hediffSet.hediffs.Remove(hediff);
         }
 
         public static void RemoveHediffs(this Pawn pawn, HediffDef hediffDef)
         {
             if (pawn?.health?.hediffSet?.hediffs == null)
                 return;
-
-            // Collects into its own obj to avoid invalidating the enumerable
-            List<Hediff> hediffs = pawn.health.hediffSet.hediffs.Where(h => h.def == hediffDef).ToList();
-            pawn.RemoveHediffsNoNullCheck(hediffs);
-        }
-
-        private static void RemoveHediffsNoNullCheck(this Pawn pawn, IEnumerable<Hediff> hediffs)
-        {
-            foreach (Hediff hediff in hediffs)
-                pawn.health.hediffSet.hediffs.Remove(hediff);
+            pawn.health.hediffSet.hediffs.RemoveAll(h => h.def == hediffDef);
         }
 
         public static void AddHediffs(this Pawn pawn, IEnumerable<Hediff> hediffs)
